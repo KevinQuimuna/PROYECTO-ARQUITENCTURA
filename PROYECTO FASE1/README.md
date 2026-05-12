@@ -1,3 +1,10 @@
+LogiFlow — Fase 1
+Descripción General
+
+LogiFlow es una plataforma integral de gestión logística basada en una arquitectura de microservicios desarrollada con Spring Boot, Java 17 y PostgreSQL.
+La solución implementa principios de Domain-Driven Design (DDD) y prácticas DevOps para automatizar integración continua, análisis de calidad y despliegue.
+
+El proyecto contempla el modelado del dominio y el desarrollo inicial de microservicios REST para la gestión de flota y mantenimiento.
 # LogiFlow — Fase 1 (monorepo Maven)
 
 Microservicios Spring Boot 3.2 / Java 17:
