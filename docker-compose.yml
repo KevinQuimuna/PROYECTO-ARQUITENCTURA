@@ -1,0 +1,20 @@
+# PostgreSQL para LogiFlow — dos bases (una por microservicio).
+# Arranque: docker compose up -d
+# Puerto en tu PC: 5433 (evita choque con PostgreSQL nativo de Windows en 5432).
+# Dentro del contenedor sigue siendo 5432.
+services:
+  logiflow-postgres:
+    image: postgres:16-alpine
+    container_name: logiflow-postgres
+    environment:
+      POSTGRES_USER: logiflow_flota
+      POSTGRES_PASSWORD: flota_secret
+      POSTGRES_DB: logiflow_flota
+    ports:
+      - "5433:5432"
+    volumes:
+      - logiflow_pgdata:/var/lib/postgresql/data
+      - ./scripts/postgres/docker-init:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  logiflow_pgdata:

@@ -1,0 +1,31 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: ms-flota-rest
+  datasource:
+    # Puerto 5433 = Docker (ver docker-compose). Si usas PostgreSQL local en 5432, define SPRING_DATASOURCE_URL.
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/logiflow_flota}
+    username: ${SPRING_DATASOURCE_USERNAME:logiflow_flota}
+    password: ${SPRING_DATASOURCE_PASSWORD:flota_secret}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.logiflow: INFO

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="http://logiflow.local/taller/contrato"
+             xmlns:tns="http://logiflow.local/taller/contrato">
+
+  <documentation>
+    Anexo de contrato (tipos de datos) para el contexto Taller.
+    Las operaciones consultarVehiculo(matricula) y registrarOrdenMantenimiento(matricula, descripcion)
+    están implementadas como REST en ms-taller-rest y documentadas con OpenAPI (Swagger UI).
+    Este WSDL define únicamente el modelo de datos equivalente en XSD.
+  </documentation>
+
+  <types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               targetNamespace="http://logiflow.local/taller/contrato"
+               elementFormDefault="qualified">
+
+      <xs:element name="ConsultarVehiculoResponse" type="tns:ConsultarVehiculoResponseType"/>
+      <xs:complexType name="ConsultarVehiculoResponseType">
+        <xs:sequence>
+          <xs:element name="codigoRespuesta" type="xs:string"/>
+          <xs:element name="vehiculo" type="tns:VehiculoTallerExternoType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="VehiculoTallerExternoType">
+        <xs:sequence>
+          <xs:element name="matricula" type="xs:string"/>
+          <xs:element name="tipoEquipo" type="xs:string"/>
+          <xs:element name="masaMaximaKg" type="xs:double"/>
+          <xs:element name="estadoOperativoTaller" type="xs:string"/>
+          <xs:element name="autonomiaDeclaradaKm" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:element name="RegistrarOrdenMantenimientoResponse" type="tns:RegistrarOrdenResponseType"/>
+      <xs:complexType name="RegistrarOrdenResponseType">
+        <xs:sequence>
+          <xs:element name="idOrden" type="xs:long"/>
+          <xs:element name="matricula" type="xs:string"/>
+          <xs:element name="fechaRegistro" type="xs:dateTime"/>
+          <xs:element name="mensaje" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+</definitions>
