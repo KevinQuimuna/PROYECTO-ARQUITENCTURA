@@ -39,7 +39,7 @@ public class VehiculoController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Obtener vehículo por id")
-    public VehiculoResponse obtener(@PathVariable Long id) {
+    public VehiculoResponse obtener(@PathVariable String id) {
         return vehiculoService.obtener(id);
     }
 
@@ -64,14 +64,14 @@ public class VehiculoController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Actualizar vehículo")
-    public VehiculoResponse actualizar(@PathVariable Long id, @Valid @RequestBody VehiculoRequest request) {
+    public VehiculoResponse actualizar(@PathVariable String id, @Valid @RequestBody VehiculoRequest request) {
         return vehiculoService.actualizar(id, request);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Eliminar vehículo")
-    public void eliminar(@PathVariable Long id) {
+    public void eliminar(@PathVariable String id) {
         vehiculoService.eliminar(id);
     }
 }

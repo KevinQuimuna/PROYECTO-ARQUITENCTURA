@@ -33,7 +33,7 @@ public class FlotaRestClient {
         }
     }
 
-    public void actualizarVehiculo(Long id, VehiculoFlotaDto actualizado) {
+    public void actualizarVehiculo(String id, VehiculoFlotaDto actualizado) {
         var body = new java.util.LinkedHashMap<String, Object>();
         body.put("matricula", actualizado.getMatricula());
         body.put("tipo", actualizado.getTipo());

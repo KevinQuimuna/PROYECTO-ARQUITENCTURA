@@ -8,18 +8,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class VehiculoFlotaDto {
 
-    private Long id;
+    private String id;
     private String matricula;
     private String tipo;
     private Double capacidadKg;
     private Integer autonomiaKm;
     private String estado;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

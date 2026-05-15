@@ -4,7 +4,7 @@ import com.logiflow.flota.domain.EstadoVehiculo;
 import com.logiflow.flota.domain.TipoVehiculo;
 
 public record VehiculoResponse(
-        Long id,
+        String id,
         String matricula,
         TipoVehiculo tipo,
         Double capacidadKg,

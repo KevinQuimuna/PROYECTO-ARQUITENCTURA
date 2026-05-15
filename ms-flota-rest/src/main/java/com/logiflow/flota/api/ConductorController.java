@@ -37,7 +37,7 @@ public class ConductorController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Obtener conductor por id")
-    public ConductorResponse obtener(@PathVariable Long id) {
+    public ConductorResponse obtener(@PathVariable String id) {
         return conductorService.obtener(id);
     }
 
@@ -50,14 +50,14 @@ public class ConductorController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Actualizar conductor")
-    public ConductorResponse actualizar(@PathVariable Long id, @Valid @RequestBody ConductorRequest request) {
+    public ConductorResponse actualizar(@PathVariable String id, @Valid @RequestBody ConductorRequest request) {
         return conductorService.actualizar(id, request);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Eliminar conductor")
-    public void eliminar(@PathVariable Long id) {
+    public void eliminar(@PathVariable String id) {
         conductorService.eliminar(id);
     }
 }

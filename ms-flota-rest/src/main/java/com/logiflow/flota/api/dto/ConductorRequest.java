@@ -7,5 +7,5 @@ import jakarta.validation.constraints.NotNull;
 public record ConductorRequest(
         @NotBlank String nombreCompleto,
         @NotBlank String licencia,
-        Long vehiculoId,
+        String vehiculoId,
         @NotNull EstadoConductor estado) {}

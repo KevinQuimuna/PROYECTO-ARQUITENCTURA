@@ -30,7 +30,7 @@ public class ConductorService {
     }
 
     @Transactional(readOnly = true)
-    public ConductorResponse obtener(Long id) {
+    public ConductorResponse obtener(String id) {
         return toResponse(buscar(id));
     }
 
@@ -45,7 +45,7 @@ public class ConductorService {
     }
 
     @Transactional
-    public ConductorResponse actualizar(Long id, ConductorRequest req) {
+    public ConductorResponse actualizar(String id, ConductorRequest req) {
         Conductor c = buscar(id);
         if (!c.getLicencia().equalsIgnoreCase(req.licencia())
                 && conductorRepository.existsByLicencia(req.licencia())) {
@@ -56,7 +56,7 @@ public class ConductorService {
     }
 
     @Transactional
-    public void eliminar(Long id) {
+    public void eliminar(String id) {
         conductorRepository.delete(buscar(id));
     }
 
@@ -81,7 +81,7 @@ public class ConductorService {
         }
     }
 
-    private Conductor buscar(Long id) {
+    private Conductor buscar(String id) {
         return conductorRepository
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Conductor no encontrado"));

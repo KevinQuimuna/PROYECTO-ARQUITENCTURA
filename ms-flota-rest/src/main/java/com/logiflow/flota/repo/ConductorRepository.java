@@ -5,7 +5,7 @@ import com.logiflow.flota.domain.EstadoConductor;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ConductorRepository extends JpaRepository<Conductor, Long> {
+public interface ConductorRepository extends JpaRepository<Conductor, String> {
 
     List<Conductor> findByEstado(EstadoConductor estado);
 

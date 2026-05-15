@@ -27,7 +27,7 @@ public class VehiculoService {
     }
 
     @Transactional(readOnly = true)
-    public VehiculoResponse obtener(Long id) {
+    public VehiculoResponse obtener(String id) {
         return toResponse(buscar(id));
     }
 
@@ -50,7 +50,7 @@ public class VehiculoService {
     }
 
     @Transactional
-    public VehiculoResponse actualizar(Long id, VehiculoRequest req) {
+    public VehiculoResponse actualizar(String id, VehiculoRequest req) {
         Vehiculo v = buscar(id);
         if (!v.getMatricula().equalsIgnoreCase(req.matricula())
                 && vehiculoRepository.existsByMatriculaIgnoreCase(req.matricula())) {
@@ -61,7 +61,7 @@ public class VehiculoService {
     }
 
     @Transactional
-    public void eliminar(Long id) {
+    public void eliminar(String id) {
         vehiculoRepository.delete(buscar(id));
     }
 
@@ -88,7 +88,7 @@ public class VehiculoService {
         v.setEstado(req.estado());
     }
 
-    private Vehiculo buscar(Long id) {
+    private Vehiculo buscar(String id) {
         return vehiculoRepository
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Vehículo no encontrado"));
