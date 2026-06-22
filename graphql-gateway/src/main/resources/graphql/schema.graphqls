@@ -1,0 +1,57 @@
+type Pedido {
+  id: Int!
+  codigoSeguimiento: String!
+  clienteId: Int!
+  estado: String!
+  nivel: String!
+  pesoKg: Float!
+}
+
+type Posicion {
+  envioId: Int!
+  codigoSeguimiento: String!
+  lat: Float!
+  lng: Float!
+  velocidadKmh: Float
+  tramo: String
+  etaMinutos: Int
+}
+
+type EnvioAgregado {
+  id: Int!
+  pedidoId: Int!
+  codigoSeguimiento: String!
+  estado: String!
+  vehiculoId: String
+  kmsEstimados: Float
+  etaMinutos: Int
+  pedidoEstado: String
+  ultimaPosicion: Posicion
+}
+
+input CrearPedidoInput {
+  clienteId: Int!
+  origenDireccion: String!
+  origenLat: Float
+  origenLng: Float
+  destinoDireccion: String!
+  destinoLat: Float
+  destinoLng: Float
+  pesoKg: Float!
+  nivel: String!
+  prioridad: String
+}
+
+type Query {
+  pedidosActivos(clienteId: Int!): [Pedido!]!
+  envio(id: Int!): EnvioAgregado
+}
+
+type Mutation {
+  crearPedido(input: CrearPedidoInput!): Pedido!
+  cancelarPedido(id: Int!): Boolean!
+}
+
+type Subscription {
+  seguimientoPosicion(codigoSeguimiento: String!): Posicion!
+}

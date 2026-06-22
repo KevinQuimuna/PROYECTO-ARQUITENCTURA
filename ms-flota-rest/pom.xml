@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.logiflow</groupId>
-        <artifactId>logiflow-fase1</artifactId>
+        <artifactId>logiflow-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 

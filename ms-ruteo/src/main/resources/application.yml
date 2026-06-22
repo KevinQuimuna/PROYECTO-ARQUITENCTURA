@@ -1,0 +1,27 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: ms-ruteo
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/logiflow_ruteo}
+    username: ${SPRING_DATASOURCE_USERNAME:logiflow_ruteo}
+    password: ${SPRING_DATASOURCE_PASSWORD:ruteo_secret}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:logiflow}
+    password: ${RABBITMQ_PASS:logiflow}
+
+logiflow:
+  flota-base-url: ${FLOTA_BASE_URL:http://localhost:8012}
+  pedidos-base-url: ${PEDIDOS_BASE_URL:http://localhost:8085}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

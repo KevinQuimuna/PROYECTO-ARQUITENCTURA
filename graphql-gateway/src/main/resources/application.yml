@@ -1,0 +1,27 @@
+server:
+  port: 8010
+
+spring:
+  application:
+    name: graphql-gateway
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+    schema:
+      printer:
+        enabled: true
+    websocket:
+      path: /graphql
+    cors:
+      allowed-origins: "*"
+      allowed-methods: "*"
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:logiflow}
+    password: ${RABBITMQ_PASS:logiflow}
+
+logiflow:
+  pedidos-base-url: ${PEDIDOS_BASE_URL:http://localhost:8085}
+  ruteo-base-url: ${RUTEO_BASE_URL:http://localhost:8086}

@@ -1,4 +1,4 @@
-name: CI LogiFlow Fase 1
+name: CI LogiFlow
 
 on:
   push:

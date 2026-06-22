@@ -1,0 +1,21 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: ms-clientes
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5433/logiflow_clientes}
+    username: ${SPRING_DATASOURCE_USERNAME:logiflow_clientes}
+    password: ${SPRING_DATASOURCE_PASSWORD:clientes_secret}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
