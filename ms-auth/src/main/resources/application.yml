@@ -19,7 +19,7 @@ spring:
 
 logiflow:
   jwt:
-    secret: ${JWT_SECRET:LogiFlowDevSecretKeyMustBe32CharsMin!!}
+    secret: ${JWT_SECRET}
     expiration-ms: 86400000
 
 springdoc:
